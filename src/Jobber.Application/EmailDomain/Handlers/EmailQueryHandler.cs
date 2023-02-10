@@ -1,6 +1,5 @@
 ﻿using Jobber.Application.EmailDomain.Queries;
 using Jobber.Application.EmailDomain.Responses;
-using Jobber.Domain.Entities;
 using Jobber.Domain.Settings;
 using MediatR;
 using Microsoft.Extensions.Options;
@@ -9,6 +8,7 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
+using Jobber.Domain.EmailDomain.Entities;
 
 namespace Jobber.Application.EmailDomain.Handlers
 {

@@ -1,4 +1,4 @@
-﻿using Jobber.Domain.Entities;
+﻿using Jobber.Domain.EmailDomain.Entities;
 using Rpa.WinService.Contracts;
 
 namespace Jobber.Application.EmailDomain.Responses

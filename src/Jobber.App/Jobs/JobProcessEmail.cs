@@ -18,7 +18,7 @@ namespace Jobber.App.Jobs
 {
     /// <summary>
     /// This demonstrates reading a bunch of emails and and then processing them in a parallel manner.
-    /// Not that this example you can produce some data and then consume it. There is another example named
+    /// Note that this example you can produce some data and then consume it. There is another example named
     /// "JobMonitorFolderSize.cs" which does ONLY have one method. Because, you don't always have a case
     /// where you would have batch data to consume.
     /// </summary>
