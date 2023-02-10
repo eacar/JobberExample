@@ -87,6 +87,7 @@ namespace Jobber.App
                 {
                     SharpLogger.LogInfo($"Found settings '{file}'");
                     SharpLogger.LogInfo($"EnvironmentType is {type}");
+                    environmentType = type;
                     break;
                 }
             }
