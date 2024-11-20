@@ -33,7 +33,7 @@ bck/db/
 *.VisualState.xml
 TestResult.xml
 
-*.mp4
+#*.mp4
 *_i.c
 *_p.c
 *_i.h

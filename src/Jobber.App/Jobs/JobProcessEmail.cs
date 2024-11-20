@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 namespace Jobber.App.Jobs
 {
     /// <summary>
-    /// This demonstrates reading a bunch of emails and and then processing them in a parallel manner.
+    /// This demonstrates reading a bunch of emails and then processing them in a parallel manner.
     /// Note that this example you can produce some data and then consume it. There is another example named
     /// "JobMonitorFolderSize.cs" which does ONLY have one method. Because, you don't always have a case
     /// where you would have batch data to consume.
@@ -75,7 +75,7 @@ namespace Jobber.App.Jobs
 
         private async Task<IEnumerable<EmailResponse>> Produce()
         {
-            var rr= await base.Mediator.Send(new FilterEmailsQuery
+            var items = await base.Mediator.Send(new FilterEmailsQuery
             {
                 TopCount = _jobConfigSettings.Detail.TopRecordCount,
                 EmailFolder = _emailSettings.Default.Inbox,
@@ -83,7 +83,7 @@ namespace Jobber.App.Jobs
                 IsGetAttachments = true
             });
 
-            return rr;
+            return items;
         }
 
         private async Task Consume(EmailResponse item)
@@ -109,7 +109,7 @@ namespace Jobber.App.Jobs
                     default:
 
                         base.LogInfo(item.EmailItem.Subject, "is something we do not care!");
-                        //Don't bother if its something we don't know...
+                        //Don't bother if it's something we don't know...
 
                         break;
                 }
@@ -129,7 +129,7 @@ namespace Jobber.App.Jobs
                 Subject = $"{item.EmailItem.Subject} - Not good!",
                 Body = "Sorry, we know what's wrong. But we won't tell you!",
                 To = item.EmailItem.From?.Address, //Send who ever send this
-                Cc = _emailSettings.BusinessTeamEmail, //You might wanna inform you Business team!
+                Cc = _emailSettings.BusinessTeamEmail, //You might want to inform you Business team!
             });
         }
 
@@ -142,7 +142,7 @@ namespace Jobber.App.Jobs
                 Subject = $"{item.EmailItem.Subject} - Failed!",
                 Body = "Sorry, something happened even we don't know...",
                 To = item.EmailItem.From?.Address, //Send who ever send this
-                Cc = _emailSettings.TechnicalTeamEmail, //You might wanna inform you Technical team!
+                Cc = _emailSettings.TechnicalTeamEmail, //You might want to inform you Technical team!
             });
         }
 
